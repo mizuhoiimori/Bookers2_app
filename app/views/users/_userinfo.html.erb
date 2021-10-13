@@ -1,0 +1,17 @@
+<h1>User info</h1>
+  <table class="table">
+    <tr>
+      <td>
+        <%= attachment_image_tag user, :image, :fill,100,100, format: "jpeg", fallback: "no_image.jpg" %>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>introduction</td>
+    </tr>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.introduction %></td>
+    </tr>
+  </table>
