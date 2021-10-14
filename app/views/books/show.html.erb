@@ -1,18 +1,16 @@
-<div class="container py-3 pb-5">
+<div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-md-3 pr-1">
-      <%= render "users/userinfo",user:@user %>
+    <div class="col-md-3">
+      <%= render "users/userinfo", user:@user %>
       <%= render "books/submit", book:@book_new %>
-    </div>
-  <div class="col-md-8 offset-md-1">
-    <h1>Book detail</h1>
+    <h2>Book detai</h2>
       <div>
         <table class="table">
           <tbody>
             <tr>
               <td>
                 <%= link_to user_path(@book.user.id) do %>
-                  <%= attachment_image_tag @book.user, :image, :fill,100,100, format:"jpeg", fallback:"no_image.jpg" %>
+                  <%= attachment_image_tag @book.user, :profile_image, :fill,100,100, format:"jpeg", fallback:"no_image.jpg" %>
                   <%= @book.user.name %>
                 <% end %>
               </td>
@@ -20,22 +18,22 @@
                 <%= link_to @book.title %>
               </td>
               <td>
-                <%= @book.body %>
+                <%= @book.opinion %>
               </td>
               <td>
-                <% if @book.user == current_user %>
-                  <%= link_to "Edit", edit_book_path(@book), class:"btn btn-success" %>
+                <% if @user == current_user %>
+                <%= link_to "Edit", edit_book_path(@book), class:"btn btn-success" %>
                 <% end %>
               </td>
               <td>
-                <% if @book.user == current_user %>
-                  <%= link_to "Destroy", mothod: :delete, class:"btn btn-danger", data: {confirm: "本当に削除しますか？" } %>
+                <% if @user == current_user %>
+                <%= link_to "Destroy", book_path(@book), method: :delete, 'data-confirm' => "本当に削除しますか？" , class:"btn btn-danger" %>
                 <% end %>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-  </div>
-  </div>
+    </div>
+   </div>
 </div>
