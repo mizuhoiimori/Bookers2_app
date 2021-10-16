@@ -1,10 +1,12 @@
-<div class="container px-5 px-sm-0">
+<div class="container">
   <div class="row">
     <div class="col-md-3">
       <%= render "users/userinfo", user:@user %>
       <%= render "books/submit", book:@book_new %>
-    <h2>Book detai</h2>
-      <div>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
         <table class="table">
           <tbody>
             <tr>
@@ -18,7 +20,7 @@
                 <%= link_to @book.title %>
               </td>
               <td>
-                <%= @book.opinion %>
+                <%= @book.body %>
               </td>
               <td>
                 <% if @user == current_user %>
@@ -34,6 +36,5 @@
           </tbody>
         </table>
       </div>
-    </div>
    </div>
 </div>

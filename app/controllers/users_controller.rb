@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+before_action :current_user, only: [:edit, :update, :destroy]
+
   def index
     @users = User.all
     @user = current_user
@@ -15,21 +17,20 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user = current_user
-      redirect_to edit_user_path
-    else
-      render edit_user_path(current_user)
-    end
+     if @user = current_user
+       render :edit
+     else
+       redirect_to user_path(@user.id)
+     end
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      flash[:success] = "You have updated user successfully."
-      redirect_to user_path(current_user)
-    else
-      render :edit
-    end
+    @user = current_user
+      if @user.update(user_params)
+        redirect_to user_path(@user.id)
+      else
+        render 'edit'
+      end
   end
 
   private
