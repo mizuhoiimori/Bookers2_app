@@ -15,9 +15,9 @@
       <div class="container">
         <%= link_to "Bookers", root_path, class:"navbar-brand"  %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
         </button>
-      　<div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <% if user_signed_in? %>
           <!--ログイン済み？-->
       　　<!--true-->
@@ -39,7 +39,6 @@
                 <% end %>
               </li>
             </ul>
-          <!--</div>-->
           <% else %>
         <!--false-->
           <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
@@ -49,7 +48,7 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to homes_about_path,class:"nav-link text-light fas fa-link" do %>About
+                <%= link_to home_about_path,class:"nav-link text-light fas fa-link" do %>About
                 <% end %>
               </li>
               <li class="nav-item">
